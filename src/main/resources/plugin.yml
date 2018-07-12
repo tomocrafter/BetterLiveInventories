@@ -1,0 +1,22 @@
+name: BetterLiveInventories
+description: The best live inventories
+main: net.tomocraft.betterliveinventories
+version: 1.0
+authors: [tomocrafter]
+commands:
+  betterliveinventories:
+    description: main command of betterliveinventories
+    usage: |-
+      §cUsage: /betterliveinventories reload/rl
+      §c Usage: /betterliveinventories toggle-animation [player]
+    aliases: [bli]
+permissions:
+  betterliveinventories.admin:
+    description: gives you all permissions.
+    default: op
+  betterliveinventories.reload:
+    description: allows you use /li reload/rl.
+    default: op
+  betterliveinventories.toggle_animation:
+    description: allows you to use /li toggle-animation <player>.
+    default: op

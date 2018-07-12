@@ -1,0 +1,16 @@
+check_server_compatibility_on_load: true
+cancel_damage_on_inventory_load: false
+load_inventory_when_empty: false
+one_use_at_a_time: false
+skip_empty_inventory_slots: false
+load_custom_inventories: true
+load_chest_inventories: true
+inventory_update_ticks: 1
+loading_inventory_title: Loading... ({progress}/{slots})
+no_permission: '&cYou do not have permission to do this.'
+toggle_animation_on: '&aYou toggled {player}''s animation on.'
+toggle_animation_off: '&cYou toggled {player}''s animation off.'
+player_not_found: '&cPlayer not found.'
+reload_message: '&aBetterLiveInventories configuration successfully reloaded.'
+disabled_inventories: inventory one, inventory two
+disabled_players: playerName1, playerName2
