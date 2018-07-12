@@ -9,6 +9,7 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -99,6 +100,8 @@ public class BetterLiveInventories extends JavaPlugin {
 							newInventory.setItem(nextIndex, itemStack);
 							this.lastInventory = newInventory;
 							p.openInventory(newInventory);
+						} else {
+							this.cancel();
 						}
 					}
 				}.runTaskTimer(self, settings.getInt("inventory_update_ticks"), settings.getInt("inventory_update_ticks"));
@@ -112,6 +115,11 @@ public class BetterLiveInventories extends JavaPlugin {
 			@EventHandler
 			public void onClick(final InventoryClickEvent e) {
 				if (lockPlayer.contains(e.getWhoClicked().getUniqueId())) e.setCancelled(true);
+			}
+
+			@EventHandler
+			public void onDamage(final EntityDamageEvent e) {
+				if (lockPlayer.contains(e.getEntity().getUniqueId()) && settings.getBoolean("cancel_damage_on_inventory_load")) e.setCancelled(true);
 			}
 		}, this);
 
